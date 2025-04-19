@@ -6,15 +6,45 @@ using System.Threading.Tasks;
 
 namespace DCPUtils.Enum {
     public enum EContentKind {
-        Feature, // stored as 'feature', FTR
-        Trailer, // stored as 'trailer', TLR
-        Teaser, // stored as 'teaser', TSR
-        Rating, // stored as 'rating', RTG
-        Policy, // stored as 'policy', POL
-        Advert, // stored as 'advertisement', ADV
-        Short, // stored as 'short', EPS/CLP
-        PSA, // stored as 'psa', PSA
-        Test, // stored as 'test', TST
-        Other, // anything that doesn't conform to the above
+        /// <summary>
+        /// Content stored as 'feature', FTR
+        /// </summary>
+        Feature,
+        /// <summary>
+        /// Content stored as 'trailer', TLR
+        /// </summary>
+        Trailer,
+        /// <summary>
+        /// Content stored as 'teaser', TSR
+        /// </summary>
+        Teaser,
+        /// <summary>
+        /// Content stored as 'rating', RTG
+        /// </summary>
+        Rating,
+        /// <summary>
+        /// Content stored as 'policy', POL
+        /// </summary>
+        Policy,
+        /// <summary>
+        /// Content stored as 'advertisement', ADV
+        /// </summary>
+        Advert,
+        /// <summary>
+        /// Content stored as 'short', EPS/CLP
+        /// </summary>
+        Short,
+        /// <summary>
+        /// Content stored as 'psa', PSA
+        /// </summary>
+        PSA,
+        /// <summary>
+        /// Content stored as 'test', TST
+        /// </summary>
+        Test,
+        /// <summary>
+        /// Anything that doesn't conform to the standard content types.
+        /// </summary>
+        Other,
     }
 }
