@@ -113,6 +113,12 @@ namespace DCPUtils.Utils {
             }
         }
 
+        /// <summary>
+        /// Parses a <see cref="Point"/> from an <see cref="XElement"/>.
+        /// </summary>
+        /// <param name="pointElem"></param>
+        /// <param name="meta"></param>
+        /// <returns></returns>
         public static Point ParsePoint(XElement pointElem, XNamespace meta) {
             if (pointElem == null) {
                 return default;
