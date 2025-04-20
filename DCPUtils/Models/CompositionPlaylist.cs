@@ -22,8 +22,15 @@ namespace DCPUtils.Models {
             ReelList = new List<CompositionReel>();
         }
 
+        /// <summary>
+        /// Reads a <see cref="CompositionPlaylist"/> from the given <see cref="XDocument"/>.
+        /// </summary>
+        /// <param name="doc"></param>
+        /// <param name="ns"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         public FContentVersion ReadCplContentVersion(XDocument doc, XNamespace ns) {
-            var versionElement = doc.Root?.Element(ns + "ContentVersion");
+            XElement versionElement = doc.Root?.Element(ns + "ContentVersion");
 
             if (versionElement == null) {
                 throw new Exception("ContentVersion couldn't be found in the CPL.");
