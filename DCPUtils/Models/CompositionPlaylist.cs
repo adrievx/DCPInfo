@@ -23,7 +23,8 @@ namespace DCPUtils.Models {
         }
 
         /// <summary>
-        /// Reads a <see cref="CompositionPlaylist"/> from the given <see cref="XDocument"/>.
+        /// Reads a <see cref="CompositionPlaylist"/> from the given <see cref="XDocument"/> and outputs
+        /// an <see cref="FContentVersion"/>.
         /// </summary>
         /// <param name="doc"></param>
         /// <param name="ns"></param>
