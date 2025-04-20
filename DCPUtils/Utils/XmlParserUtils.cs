@@ -93,6 +93,12 @@ namespace DCPUtils.Utils {
             };
         }
 
+        /// <summary>
+        /// Parses a string into a <see cref="Tuple{T1, T2, T3}"/> of a numerator, denominator and the length of its parts.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        /// <exception cref="IndexOutOfRangeException"></exception>
         public static (int numerator, int denominator, int partsLen) ParseSplitNumerator(string value) {
             var parts = value.Split(' ');
 
