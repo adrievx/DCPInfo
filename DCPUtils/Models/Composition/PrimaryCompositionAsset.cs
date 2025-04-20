@@ -13,7 +13,7 @@ namespace DCPUtils.Models.Composition {
         public string Hash { get; set; } // in an actual CPL this is base64 encoded SHA1, we decode it for ease of use
 
         /// <summary>
-        /// Verify the SHA1 hash of a specified MXF
+        /// Verifies the SHA1 hash of a specified MXF.
         /// </summary>
         /// <param name="packList"></param>
         /// <param name="mxfPath"></param>

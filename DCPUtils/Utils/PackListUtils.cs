@@ -7,6 +7,12 @@ using System.Xml.Linq;
 
 namespace DCPUtils.Utils {
     public class PackListUtils {
+        /// <summary>
+        /// Gets the file name from the packaging list for a given <see cref="Guid"/>.
+        /// </summary>
+        /// <param name="packListFile"></param>
+        /// <param name="uuid"></param>
+        /// <returns></returns>
         public static string GetFileNameFromPackagingList(string packListFile, Guid uuid) {
             if(string.IsNullOrEmpty(packListFile)) {
                 return null;
@@ -25,6 +31,12 @@ namespace DCPUtils.Utils {
             }
         }
 
+        /// <summary>
+        /// Gets the hash from the packaging list for a given <see cref="Guid"/>.
+        /// </summary>
+        /// <param name="packListFile"></param>
+        /// <param name="uuid"></param>
+        /// <returns></returns>
         public static string GetHashFromPackagingList(string packListFile, Guid uuid) {
             if (string.IsNullOrEmpty(packListFile)) {
                 return null;
@@ -43,6 +55,12 @@ namespace DCPUtils.Utils {
             }
         }
 
+        /// <summary>
+        /// Gets the <see cref="Guid"/> of the <see cref="Models.CompositionPlaylist"/> from the packing list.
+        /// </summary>
+        /// <param name="packListPath"></param>
+        /// <returns></returns>
+        /// <exception cref="InvalidOperationException"></exception>
         public static Guid GetCplUuid(string packListPath) {
             XNamespace ns = "http://www.smpte-ra.org/schemas/429-8/2007/PKL";
 

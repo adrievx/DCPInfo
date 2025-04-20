@@ -22,8 +22,16 @@ namespace DCPUtils.Models {
             ReelList = new List<CompositionReel>();
         }
 
+        /// <summary>
+        /// Reads a <see cref="CompositionPlaylist"/> from the given <see cref="XDocument"/> and outputs
+        /// an <see cref="FContentVersion"/>.
+        /// </summary>
+        /// <param name="doc"></param>
+        /// <param name="ns"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         public FContentVersion ReadCplContentVersion(XDocument doc, XNamespace ns) {
-            var versionElement = doc.Root?.Element(ns + "ContentVersion");
+            XElement versionElement = doc.Root?.Element(ns + "ContentVersion");
 
             if (versionElement == null) {
                 throw new Exception("ContentVersion couldn't be found in the CPL.");
@@ -38,8 +46,15 @@ namespace DCPUtils.Models {
             };
         }
 
+        /// <summary>
+        /// Reads an <see cref="FRating"/> from the given <see cref="XDocument"/> 
+        /// and outputs a collection of <see cref="FRating"/>'s.
+        /// </summary>
+        /// <param name="doc"></param>
+        /// <param name="ns"></param>
+        /// <returns></returns>
         public List<FRating> ReadRatingList(XDocument doc, XNamespace ns) {
-            var ratings = doc.Descendants(ns + "Rating").Select(ratingElem => new FRating {
+            List<FRating> ratings = doc.Descendants(ns + "Rating").Select(ratingElem => new FRating {
                 Agency = ratingElem.Element(ns + "Agency")?.Value ?? string.Empty,
                 Label = ratingElem.Element(ns + "Label")?.Value ?? string.Empty,
                 Region = ratingElem.Element(ns + "Region")?.Value ?? string.Empty

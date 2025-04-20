@@ -10,6 +10,13 @@ using DCPUtils.Enum;
 
 namespace DCPUtils.Utils {
     public class XmlParserUtils {
+        /// <summary>
+        /// Parses a sound configuration string into a <see cref="FSoundConfiguration"/> object.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        /// <exception cref="FormatException"></exception>
+        /// <exception cref="NotSupportedException"></exception>
         public static FSoundConfiguration ParseSoundConfiguration(string value) {
             var spl = value.Split('/');
 
@@ -68,6 +75,11 @@ namespace DCPUtils.Utils {
             };
         }
 
+        /// <summary>
+        /// Parses a sample rate string into a <see cref="FSampleRate"/> object.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public static FSampleRate ParseSampleRate(string value) {
             if (string.IsNullOrWhiteSpace(value)) {
                 return default;
@@ -81,6 +93,12 @@ namespace DCPUtils.Utils {
             };
         }
 
+        /// <summary>
+        /// Parses a string into a <see cref="Tuple{T1, T2, T3}"/> of a numerator, denominator and the length of its parts.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        /// <exception cref="IndexOutOfRangeException"></exception>
         public static (int numerator, int denominator, int partsLen) ParseSplitNumerator(string value) {
             var parts = value.Split(' ');
 
@@ -95,6 +113,12 @@ namespace DCPUtils.Utils {
             }
         }
 
+        /// <summary>
+        /// Parses a <see cref="Point"/> from an <see cref="XElement"/>.
+        /// </summary>
+        /// <param name="pointElem"></param>
+        /// <param name="meta"></param>
+        /// <returns></returns>
         public static Point ParsePoint(XElement pointElem, XNamespace meta) {
             if (pointElem == null) {
                 return default;
