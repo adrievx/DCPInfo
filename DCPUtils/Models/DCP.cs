@@ -27,7 +27,7 @@ namespace DCPUtils.Models {
         public string DcpRoot = "";
 
         /// <summary>
-        /// Verifies the <see cref="DCP"/> against the <see cref="DCPAsset"/> collection (if present) to ensure that the package hasn't been tampered with.
+        /// Verifies the <see cref="DCP"/> against the packaging list (if present) to ensure that the package hasn't been tampered with.
         /// </summary>
         /// <returns></returns>
         public bool Verify() {
@@ -87,7 +87,7 @@ namespace DCPUtils.Models {
         }
 
         /// <summary>
-        /// Read a DCP into a new model
+        /// Read a <see cref="DCP"/> into a new model
         /// </summary>
         /// <param name="root"></param>
         /// <param name="loadingFromDriveRoot"></param>
