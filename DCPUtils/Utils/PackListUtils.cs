@@ -7,6 +7,12 @@ using System.Xml.Linq;
 
 namespace DCPUtils.Utils {
     public class PackListUtils {
+        /// <summary>
+        /// Gets the file name from the packaging list for a given <see cref="Guid"/>.
+        /// </summary>
+        /// <param name="packListFile"></param>
+        /// <param name="uuid"></param>
+        /// <returns></returns>
         public static string GetFileNameFromPackagingList(string packListFile, Guid uuid) {
             if(string.IsNullOrEmpty(packListFile)) {
                 return null;
