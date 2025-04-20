@@ -10,6 +10,13 @@ using DCPUtils.Enum;
 
 namespace DCPUtils.Utils {
     public class XmlParserUtils {
+        /// <summary>
+        /// Parses a sound configuration string into a <see cref="FSoundConfiguration"/> object.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        /// <exception cref="FormatException"></exception>
+        /// <exception cref="NotSupportedException"></exception>
         public static FSoundConfiguration ParseSoundConfiguration(string value) {
             var spl = value.Split('/');
 
