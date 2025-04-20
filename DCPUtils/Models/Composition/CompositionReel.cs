@@ -15,8 +15,15 @@ namespace DCPUtils.Models.Composition {
         public MainSound MainSound { get; set; }
         public CompositionMetadata Metadata { get; set; } // this may or may not exist
 
+        /// <summary>
+        /// Returns a collection of <see cref="CompositionReel"/> objects in document order 
+        /// from the given <see cref="XDocument"/>.
+        /// </summary>
+        /// <param name="doc"></param>
+        /// <param name="ns"></param>
+        /// <returns></returns>
         public static List<CompositionReel> ReadReels(XDocument doc, XNamespace ns) {
-            var reels = doc.Descendants(ns + "Reel").Select(reelElem => {
+            List<CompositionReel> reels = doc.Descendants(ns + "Reel").Select(reelElem => {
                 var assetList = reelElem.Element(ns + "AssetList");
 
                 var reel = new CompositionReel();
