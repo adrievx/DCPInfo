@@ -75,6 +75,11 @@ namespace DCPUtils.Utils {
             };
         }
 
+        /// <summary>
+        /// Parses a sample rate string into a <see cref="FSampleRate"/> object.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public static FSampleRate ParseSampleRate(string value) {
             if (string.IsNullOrWhiteSpace(value)) {
                 return default;
