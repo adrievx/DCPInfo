@@ -55,6 +55,12 @@ namespace DCPUtils.Utils {
             }
         }
 
+        /// <summary>
+        /// Gets the <see cref="Guid"/> of the <see cref="Models.CompositionPlaylist"/> from the packing list.
+        /// </summary>
+        /// <param name="packListPath"></param>
+        /// <returns></returns>
+        /// <exception cref="InvalidOperationException"></exception>
         public static Guid GetCplUuid(string packListPath) {
             XNamespace ns = "http://www.smpte-ra.org/schemas/429-8/2007/PKL";
 
