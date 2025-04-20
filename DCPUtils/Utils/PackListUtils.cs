@@ -31,6 +31,12 @@ namespace DCPUtils.Utils {
             }
         }
 
+        /// <summary>
+        /// Gets the hash from the packaging list for a given <see cref="Guid"/>.
+        /// </summary>
+        /// <param name="packListFile"></param>
+        /// <param name="uuid"></param>
+        /// <returns></returns>
         public static string GetHashFromPackagingList(string packListFile, Guid uuid) {
             if (string.IsNullOrEmpty(packListFile)) {
                 return null;
