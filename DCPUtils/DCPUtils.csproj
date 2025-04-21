@@ -60,8 +60,17 @@
     <Compile Include="Models\DCPMetadata.cs" />
     <Compile Include="Models\DCPNode.cs" />
     <Compile Include="Models\DCPNodeExtended.cs" />
+    <Compile Include="Models\KDM\AuthenticatedPublic.cs" />
+    <Compile Include="Models\KDM\AuthorizedDevice.cs" />
+    <Compile Include="Models\KDM\EncryptedKey.cs" />
+    <Compile Include="Models\KDM\KDM.cs" />
+    <Compile Include="Models\KDM\KDMRequiredExtension.cs" />
+    <Compile Include="Models\KDM\KDMSignature.cs" />
+    <Compile Include="Models\KDM\SignedInfo.cs" />
+    <Compile Include="Models\Structs\FAuthenticationReference.cs" />
     <Compile Include="Models\Structs\FContentVersion.cs" />
     <Compile Include="Models\Structs\FFrameRate.cs" />
+    <Compile Include="Models\Structs\FKeyId.cs" />
     <Compile Include="Models\Structs\FRating.cs" />
     <Compile Include="Models\Structs\FSampleRate.cs" />
     <Compile Include="Models\Structs\FSoundConfiguration.cs" />
