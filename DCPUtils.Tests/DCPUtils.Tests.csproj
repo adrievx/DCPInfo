@@ -60,6 +60,7 @@
     <Compile Include="Statics.cs" />
     <Compile Include="CompositionPlaylist.cs" />
     <Compile Include="DCPSystem.cs" />
+    <Compile Include="KDMSystem.cs" />
     <Compile Include="Utils.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -8,7 +8,7 @@ using DCPUtils.Models.Structs;
 
 namespace DCPUtils.Models.KDM {
     public class KDMRequiredExtension {
-        public X509Certificate Recipient { get; set; }
+        public Crypto.X509Certificate Recipient { get; set; }
         public Guid CompositionPlaylistId { get; set; }
         public string ContentTitleText { get; set; } // typically the name of the DCP itself (e.g. Miraculous_FTR-1_S...)
         public DateTime ContentKeysNotValidBefore { get; set; }

@@ -62,6 +62,7 @@
     <Compile Include="Models\DCPNodeExtended.cs" />
     <Compile Include="Models\KDM\AuthenticatedPublic.cs" />
     <Compile Include="Models\KDM\AuthorizedDevice.cs" />
+    <Compile Include="Models\KDM\Crypto\X509Certificate.cs" />
     <Compile Include="Models\KDM\EncryptedKey.cs" />
     <Compile Include="Models\KDM\KDM.cs" />
     <Compile Include="Models\KDM\KDMRequiredExtension.cs" />
