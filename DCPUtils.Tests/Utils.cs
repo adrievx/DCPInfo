@@ -69,9 +69,9 @@ namespace DCPUtils.Tests {
 
         [TestMethod]
         public void PackListUtils_GetFileNameFromPackagingList() {
-            string file = Path.Combine(Statics.DcpPath, "pkl_c80d0435-9faa-4f2e-9cf2-5d5c9570eeb4.xml");
+            string file = Path.Combine(Statics.DcpPath, "pkl_5dd41f3b-f395-4576-aca5-1023e5b2614b.xml");
 
-            string output = PackListUtils.GetFileNameFromPackagingList(file, Guid.Parse("16045968-8e34-447b-a086-76a1f9aacd3b"));
+            string output = PackListUtils.GetFileNameFromPackagingList(file, Guid.Parse("b8162be0-6091-4b66-9ca3-9abeffd3d925"));
 
             Assert.IsFalse(string.IsNullOrEmpty(output));
 
@@ -80,7 +80,7 @@ namespace DCPUtils.Tests {
 
         [TestMethod]
         public void PackListUtils_GetCplUuid() {
-            string file = Path.Combine(Statics.DcpPath, "pkl_c80d0435-9faa-4f2e-9cf2-5d5c9570eeb4.xml");
+            string file = Path.Combine(Statics.DcpPath, "pkl_5dd41f3b-f395-4576-aca5-1023e5b2614b.xml");
 
             var output = PackListUtils.GetCplUuid(file);
 
@@ -102,11 +102,11 @@ namespace DCPUtils.Tests {
 
         [TestMethod]
         public void CryptoUtils_CalculateSHA1() {
-            string inputFile = Path.Combine(Statics.DcpPath, "j2c_16045968-8e34-447b-a086-76a1f9aacd3b.mxf");
+            string inputFile = Path.Combine(Statics.DcpPath, "j2c_72d1e32a-d33f-467f-9c80-2cd11c037312.mxf");
 
             string output = CryptoUtils.CalculateSHA1(inputFile);
 
-            Assert.AreEqual(output.ToLower(), "b032f142d886cd8f0234153cda0dffe89f74198c");
+            Assert.AreEqual(output.ToLower(), "c6d175a75142f47b22f4163a69f015d12646af2a");
 
             Debug.WriteLine(output);
         }

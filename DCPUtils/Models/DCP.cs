@@ -4,11 +4,13 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 using DCPUtils.Enum;
 using DCPUtils.Models.Composition;
+using DCPUtils.Models.KDM;
 using DCPUtils.Models.Structs;
 using DCPUtils.Utils;
 
@@ -19,12 +21,32 @@ namespace DCPUtils.Models {
         public CompositionPlaylist CompositionPlaylist { get; internal set; }
         public List<DCPAsset> Assets { get; internal set; }
 
+        public KDM.KDM KDMData { get; internal set; }
+
         public string AssetMapPath = "";
         public string CompositionPlaylistPath = "";
         public string PackListPath = "";
         public string MainPicturePath = "";
         public string MainSoundPath = "";
         public string DcpRoot = "";
+
+        public bool IsEncrypted {
+            get {
+                bool isEncrypted = false;
+
+                foreach (var reel in this.CompositionPlaylist.ReelList) {
+                    if(reel.MainPicture.KeyId != null) {
+                        isEncrypted = true;
+                    }
+
+                    if (reel.MainSound.KeyId != null) {
+                        isEncrypted = true;
+                    }
+                }
+
+                return isEncrypted;
+            }
+        }
 
         /// <summary>
         /// Verifies the <see cref="DCP"/> against the packaging list (if present) to ensure that the package hasn't been tampered with.
@@ -84,6 +106,29 @@ namespace DCPUtils.Models {
             }
 
             return good;
+        }
+
+        public bool FindKDM(string kdmFile) {
+            if (File.Exists(kdmFile)) {
+                var kdm = KDM.KDM.Read(kdmFile);
+
+                if (kdm != null) {
+                    foreach (var item in kdm.AuthenticatedPublic.RequiredExtensions) {
+                        if(item.CompositionPlaylistId == this.CompositionPlaylist.UUID) {
+                            this.KDMData = kdm;
+                            return true;
+                        }
+                    }
+
+                    return false;
+                }
+                else {
+                    throw new SerializationException("Unable to deserialize KDM");
+                }
+            }
+            else {
+                throw new FileNotFoundException("Specified KDM could not be found");
+            }
         }
 
         /// <summary>

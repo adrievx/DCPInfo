@@ -51,9 +51,17 @@ namespace DCPUtils.Models.Composition {
                 // MainPicture
                 var mainPicElem = assetList?.Element(ns + "MainPicture");
                 if (mainPicElem != null) {
+                    Nullable<FKeyId> keyId = null;
+
+                    var keyIdElem = mainPicElem.Element(ns + "KeyId");
+                    if (keyIdElem != null) {
+                        keyId = new FKeyId() { KeyId = UuidUtils.ToGuid(keyIdElem.Value) };
+                    }
+
                     reel.MainPicture = new MainPicture {
                         UUID = UuidUtils.ToGuid(mainPicElem.Element(ns + "Id")?.Value),
                         EditRate = parseFramerate(mainPicElem.Element(ns + "EditRate")?.Value),
+                        KeyId = keyId,
                         IntrinsicDuration = int.Parse(mainPicElem.Element(ns + "IntrinsicDuration")?.Value ?? "0"),
                         FrameRate = parseFramerate(mainPicElem.Element(ns + "FrameRate")?.Value),
                         ScreenAspectRatio = parsePoint(mainPicElem.Element(ns + "ScreenAspectRatio")?.Value)
@@ -63,9 +71,17 @@ namespace DCPUtils.Models.Composition {
                 // MainSound
                 var mainSoundElem = assetList?.Element(ns + "MainSound");
                 if (mainSoundElem != null) {
+                    Nullable<FKeyId> keyId = null;
+
+                    var keyIdElem = mainSoundElem.Element(ns + "KeyId");
+                    if (keyIdElem != null) {
+                        keyId = new FKeyId() { KeyId = UuidUtils.ToGuid(keyIdElem.Value) };
+                    }
+
                     reel.MainSound = new MainSound {
                         UUID = UuidUtils.ToGuid(mainSoundElem.Element(ns + "Id")?.Value),
                         EditRate = parseFramerate(mainSoundElem.Element(ns + "EditRate")?.Value),
+                        KeyId = keyId,
                         IntrinsicDuration = int.Parse(mainSoundElem.Element(ns + "IntrinsicDuration")?.Value ?? "0"),
                         EntryPoint = long.TryParse(mainSoundElem.Element(ns + "EntryPoint")?.Value, out var ep) ? ep : 0,
                         Duration = long.TryParse(mainSoundElem.Element(ns + "Duration")?.Value, out var dur) ? dur : 0,

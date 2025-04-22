@@ -9,5 +9,6 @@ namespace DCPUtils.Models.Composition {
     public class CompositionAsset : DCPNode {
         public FFrameRate EditRate { get; set; }
         public int IntrinsicDuration { get; set; }
+        public Nullable<FKeyId> KeyId { get; set; }
     }
 }

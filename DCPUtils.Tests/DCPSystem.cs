@@ -6,6 +6,7 @@ using System.IO;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Linq;
 using System.Diagnostics;
+using DCPUtils.Models.KDM;
 
 namespace DCPUtils.Tests {
     [TestClass]
@@ -99,6 +100,27 @@ namespace DCPUtils.Tests {
             var dcp = DCP.Read(Statics.DcpPath);
 
             Assert.IsTrue(dcp.Verify());
+        }
+
+        [TestMethod]
+        public void DCP_Get_IsEncrypted() {
+            var dcp = DCP.Read(Statics.DcpPath);
+
+            Assert.IsTrue(dcp.IsEncrypted);
+
+            Debug.WriteLine(dcp.IsEncrypted);
+        }
+
+        [TestMethod]
+        public void DCP_Get_FindKDM() {
+            var dcp = DCP.Read(Statics.DcpPath);
+
+            Assert.IsNotNull(dcp);
+
+            bool found = dcp.FindKDM(Statics.KdmPath);
+
+            Assert.IsTrue(found);
+            Assert.IsNotNull(dcp.KDMData);
         }
     }
 }
