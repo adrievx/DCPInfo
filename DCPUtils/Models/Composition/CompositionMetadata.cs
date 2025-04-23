@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DCPUtils.Models.Misc;
 using DCPUtils.Models.Structs;
 
 namespace DCPUtils.Models.Composition {
@@ -31,7 +32,7 @@ namespace DCPUtils.Models.Composition {
         /// <summary>
         /// The <see href="https://www.travsonic.com/preparing-audio-for-dcp/">sample rate</see> of the <see cref="CompositionPlaylist"/>
         /// </summary>
-        public FSampleRate MainSoundSampleRate { get; set; }
+        public SampleRate MainSoundSampleRate { get; set; }
 
         /// <summary>
         /// The resolution of the stored image in the video MXF

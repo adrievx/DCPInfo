@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DCPUtils.Models.Misc;
 using DCPUtils.Models.Structs;
 
 namespace DCPUtils.Models.Composition {
     public class CompositionAsset : DCPNode {
         /// <summary>
-        /// The framerate of the composition asset, stored as a <see cref="FFrameRate"/>
+        /// The framerate of the composition asset, stored as a <see cref="FrameRate"/>
         /// </summary>
-        public FFrameRate EditRate { get; set; }
+        public FrameRate EditRate { get; set; }
 
         /// <summary>
         /// The full length of the <see cref="CompositionAsset"/>, measured in edit units

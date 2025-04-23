@@ -49,6 +49,7 @@
     <Compile Include="Enum\EContentKind.cs" />
     <Compile Include="Enum\ESoundChannel.cs" />
     <Compile Include="Enum\ESoundType.cs" />
+    <Compile Include="Interfaces\IDenominatorModel.cs" />
     <Compile Include="Models\CompositionPlaylist.cs" />
     <Compile Include="Models\Composition\CompositionAsset.cs" />
     <Compile Include="Models\Composition\CompositionMetadata.cs" />
@@ -72,12 +73,12 @@
     <Compile Include="Models\KDM\KDMRequiredExtension.cs" />
     <Compile Include="Models\KDM\KDMSignature.cs" />
     <Compile Include="Models\KDM\SignedInfo.cs" />
+    <Compile Include="Models\Misc\FrameRate.cs" />
+    <Compile Include="Models\Misc\SampleRate.cs" />
     <Compile Include="Models\Structs\FAuthenticationReference.cs" />
     <Compile Include="Models\Structs\FContentVersion.cs" />
-    <Compile Include="Models\Structs\FFrameRate.cs" />
     <Compile Include="Models\Structs\FKeyId.cs" />
     <Compile Include="Models\Structs\FRating.cs" />
-    <Compile Include="Models\Structs\FSampleRate.cs" />
     <Compile Include="Models\Structs\FSoundConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\CryptoUtils.cs" />

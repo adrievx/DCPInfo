@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using DCPUtils.Models.Structs;
 using System.Xml.Linq;
 using DCPUtils.Enum;
+using DCPUtils.Models.Misc;
 
 namespace DCPUtils.Utils {
     public class XmlParserUtils {
@@ -76,19 +77,19 @@ namespace DCPUtils.Utils {
         }
 
         /// <summary>
-        /// Parses a sample rate string into a <see cref="FSampleRate"/> object.
+        /// Parses a sample rate string into a <see cref="SampleRate"/> object.
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
-        public static FSampleRate ParseSampleRate(string value) {
+        public static SampleRate ParseSampleRate(string value) {
             if (string.IsNullOrWhiteSpace(value)) {
                 return default;
             }
 
             var data = ParseSplitNumerator(value);
 
-            return new FSampleRate {
-                SampleRate = data.numerator,
+            return new SampleRate {
+                Rate = data.numerator,
                 Denominator = data.denominator
             };
         }

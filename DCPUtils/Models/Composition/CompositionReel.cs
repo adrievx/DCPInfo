@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using DCPUtils.Models.Misc;
 using DCPUtils.Models.Structs;
 using DCPUtils.Utils;
 
@@ -129,7 +130,7 @@ namespace DCPUtils.Models.Composition {
             return reels;
         }
 
-        private static FFrameRate parseFramerate(string value) {
+        private static FrameRate parseFramerate(string value) {
             if (string.IsNullOrWhiteSpace(value)) {
                 // shouldn't be, but we check regardless
                 return default;
@@ -137,7 +138,7 @@ namespace DCPUtils.Models.Composition {
 
             var parts = value.Split(' ');
             if (parts.Length == 2 && int.TryParse(parts[0], out int numerator) && int.TryParse(parts[1], out int denominator)) {
-                return new FFrameRate { FrameRate = numerator, Denominator = denominator };
+                return new FrameRate { Rate = numerator, Denominator = denominator };
             }
 
             return default;

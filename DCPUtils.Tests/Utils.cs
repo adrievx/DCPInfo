@@ -37,7 +37,7 @@ namespace DCPUtils.Tests {
 
             var output = XmlParserUtils.ParseSampleRate(input);
 
-            Assert.AreEqual(output.SampleRate, 44100);
+            Assert.AreEqual(output.Rate, 44100);
             Assert.AreEqual(output.Denominator, 1);
         }
 
