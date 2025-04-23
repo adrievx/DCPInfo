@@ -18,6 +18,7 @@ using Org.BouncyCastle.OpenSsl;
 using Org.BouncyCastle.Asn1.Pkcs;
 using Org.BouncyCastle.Math;
 using static System.Net.Mime.MediaTypeNames;
+using DCPUtils.Enum;
 
 namespace DCPUtils.Models.KDM {
     public class KDM {
@@ -213,7 +214,7 @@ namespace DCPUtils.Models.KDM {
                                 KeyIdList = ext.Element(kdmNs + "KeyIdList")?
                                                 .Elements(kdmNs + "TypedKeyId")
                                                 .Select(k => new FKeyId {
-                                                    KeyType = k.Element(kdmNs + "KeyType")?.Value,
+                                                    KeyType = (EKdmKeyType)System.Enum.Parse(typeof(EKdmKeyType), k.Element(kdmNs + "KeyType")?.Value),
                                                     KeyId = UuidUtils.ToGuid(k.Element(kdmNs + "KeyId")?.Value ?? Guid.Empty.ToString())
                                                 }).ToList(),
                                 ForensicMarkFlagList = ext.Element(kdmNs + "ForensicMarkFlagList")?
