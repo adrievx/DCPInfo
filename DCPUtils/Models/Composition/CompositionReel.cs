@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using DCPUtils.Enum;
 using DCPUtils.Models.Misc;
 using DCPUtils.Models.Structs;
 using DCPUtils.Utils;
@@ -48,7 +49,7 @@ namespace DCPUtils.Models.Composition {
                 var mainMarkersElem = assetList?.Element(ns + "MainMarkers");
                 if (mainMarkersElem != null) {
                     var markerList = mainMarkersElem.Element(ns + "MarkerList")?.Elements(ns + "Marker").Select(m => new Marker {
-                        Label = m.Element(ns + "Label")?.Value ?? string.Empty,
+                        Label = System.Enum.TryParse<EMarkerType>(m.Element(ns + "Label")?.Value, true, out var markerType) ? markerType : default,
                         Offset = long.TryParse(m.Element(ns + "Offset")?.Value, out var offset) ? offset : 0
                     }).ToList() ?? new List<Marker>();
 

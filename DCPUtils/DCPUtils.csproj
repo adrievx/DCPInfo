@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enum\EContentKind.cs" />
+    <Compile Include="Enum\EMarkerType.cs" />
     <Compile Include="Enum\ESoundChannel.cs" />
     <Compile Include="Enum\ESoundType.cs" />
     <Compile Include="Interfaces\IDenominatorModel.cs" />
