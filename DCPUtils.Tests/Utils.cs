@@ -39,6 +39,8 @@ namespace DCPUtils.Tests {
 
             Assert.AreEqual(output.Rate, 44100);
             Assert.AreEqual(output.Denominator, 1);
+
+            Assert.AreEqual(44100, output.GetRealValue());
         }
 
         [TestMethod]
