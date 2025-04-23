@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Enum\EContentKind.cs" />
     <Compile Include="Enum\EMarkerType.cs" />
+    <Compile Include="Enum\ERatingAgency.cs" />
     <Compile Include="Enum\ESoundChannel.cs" />
     <Compile Include="Enum\ESoundType.cs" />
     <Compile Include="Interfaces\IDenominatorModel.cs" />
@@ -85,6 +86,7 @@
     <Compile Include="Utils\CryptoUtils.cs" />
     <Compile Include="Utils\EncodingUtils.cs" />
     <Compile Include="Utils\PackListUtils.cs" />
+    <Compile Include="Utils\RatingUtils.cs" />
     <Compile Include="Utils\UuidUtils.cs" />
     <Compile Include="Utils\XmlParserUtils.cs" />
   </ItemGroup>

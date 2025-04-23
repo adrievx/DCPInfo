@@ -72,7 +72,7 @@ namespace DCPUtils.Models {
         /// <returns></returns>
         public List<FRating> ReadRatingList(XDocument doc, XNamespace ns) {
             List<FRating> ratings = doc.Descendants(ns + "Rating").Select(ratingElem => new FRating {
-                Agency = ratingElem.Element(ns + "Agency")?.Value ?? string.Empty,
+                Agency = RatingUtils.FromUrl(ratingElem.Element(ns + "Agency")?.Value ?? string.Empty),
                 Label = ratingElem.Element(ns + "Label")?.Value ?? string.Empty,
                 Region = ratingElem.Element(ns + "Region")?.Value ?? string.Empty
             }).ToList();

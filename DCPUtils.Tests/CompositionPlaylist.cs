@@ -2,6 +2,7 @@
 using DCPUtils.Models;
 using System.Diagnostics;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using DCPUtils.Enum;
 
 namespace DCPUtils.Tests {
     [TestClass]
@@ -48,7 +49,8 @@ namespace DCPUtils.Tests {
 
             foreach (var rating in value) {
                 Assert.IsFalse(string.IsNullOrEmpty(rating.Label));
-                Assert.IsFalse(string.IsNullOrEmpty(rating.Agency));
+                Assert.IsNotNull(rating.Agency);
+                Assert.AreNotEqual(ERatingAgency.NR, rating.Agency);
                 Assert.IsFalse(string.IsNullOrEmpty(rating.Region));
             }
 

@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DCPUtils.Enum;
 
 namespace DCPUtils.Models.Structs {
     public struct FRating {
         /// <summary>
         /// The rating agency, see <see href="https://en.wikipedia.org/wiki/Category:Motion_picture_rating_systems">Motion picture rating systems</see>
         /// </summary>
-        public string Agency; // TODO: make this an enum
+        public ERatingAgency Agency;
 
         /// <summary>
         /// The rating given by the <see cref="Agency"/>
