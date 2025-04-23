@@ -6,7 +6,14 @@ using System.Threading.Tasks;
 
 namespace DCPUtils.Models.Composition {
     public class Marker {
-        public string Label { get; set; }
+        /// <summary>
+        /// The marker's identifier (e.g. FFOC), see the Markers section in <see href="https://hpaonline.com/wp-content/uploads/2022/07/Deluxe_Source-and-DCP_Delivery_Specifications_v5-11_20220314-2.pdf">Recommended Guidelines for DCP Content Delivery</see>
+        /// </summary>
+        public string Label { get; set; } // TODO: change this to an enum
+
+        /// <summary>
+        /// The frame offset of the marker
+        /// </summary>
         public long Offset { get; set; }
     }
 }

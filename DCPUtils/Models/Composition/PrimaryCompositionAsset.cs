@@ -9,7 +9,11 @@ using DCPUtils.Utils;
 namespace DCPUtils.Models.Composition {
     public class PrimaryCompositionAsset : CompositionAsset {
         public long EntryPoint { get; set; }
-        public long Duration { get; set; } // in frames
+
+        /// <summary>
+        /// The duration of the asset in frames
+        /// </summary>
+        public long Duration { get; set; }
         public string Hash { get; set; } // in an actual CPL this is base64 encoded SHA1, we decode it for ease of use
 
         /// <summary>

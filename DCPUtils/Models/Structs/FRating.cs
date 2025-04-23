@@ -6,8 +6,19 @@ using System.Threading.Tasks;
 
 namespace DCPUtils.Models.Structs {
     public struct FRating {
-        public string Agency;
+        /// <summary>
+        /// The rating agency, see <see href="https://en.wikipedia.org/wiki/Category:Motion_picture_rating_systems">Motion picture rating systems</see>
+        /// </summary>
+        public string Agency; // TODO: make this an enum
+
+        /// <summary>
+        /// The rating given by the <see cref="Agency"/>
+        /// </summary>
         public string Label;
-        public string Region;
+
+        /// <summary>
+        /// The region that the rating is applicable in
+        /// </summary>
+        public string Region; // TOOD: make this an enum
     }
 }

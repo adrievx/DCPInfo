@@ -11,10 +11,29 @@ using DCPUtils.Utils;
 
 namespace DCPUtils.Models {
     public class CompositionPlaylist : DCPNodeExtended {
+        /// <summary>
+        /// The title of the content, typically the DCP name
+        /// </summary>
         public string ContentTitleText { get; set; }
+
+        /// <summary>
+        /// The type of content present (feature, trailer, etc.)
+        /// </summary>
         public EContentKind ContentKind { get; set; }
+
+        /// <summary>
+        /// The version of the content being played (if not OV)
+        /// </summary>
         public FContentVersion ContentVersion { get; set; }
-        public List<FRating> RatingList { get; set; } // may or may not exist, is optional
+
+        /// <summary>
+        /// The ratings data for the movie (optional)
+        /// </summary>
+        public List<FRating> RatingList { get; set; }
+
+        /// <summary>
+        /// The list of <see cref="CompositionReel"/> reels present in the CPL
+        /// </summary>
         public List<CompositionReel> ReelList { get; set; }
 
         public CompositionPlaylist() {
@@ -23,8 +42,7 @@ namespace DCPUtils.Models {
         }
 
         /// <summary>
-        /// Reads a <see cref="CompositionPlaylist"/> from the given <see cref="XDocument"/> and outputs
-        /// an <see cref="FContentVersion"/>.
+        /// Reads a <see cref="CompositionPlaylist"/> from the given <see cref="XDocument"/> and outputs a <see cref="FContentVersion"/> structure
         /// </summary>
         /// <param name="doc"></param>
         /// <param name="ns"></param>
@@ -47,8 +65,7 @@ namespace DCPUtils.Models {
         }
 
         /// <summary>
-        /// Reads an <see cref="FRating"/> from the given <see cref="XDocument"/> 
-        /// and outputs a collection of <see cref="FRating"/>'s.
+        /// Reads the rating list from the given <see cref="XDocument"/> and outputs a collection of <see cref="FRating"/>s
         /// </summary>
         /// <param name="doc"></param>
         /// <param name="ns"></param>

@@ -16,20 +16,64 @@ using DCPUtils.Utils;
 
 namespace DCPUtils.Models {
     public class DCP {
+        /// <summary>
+        /// The name of the DCP
+        /// </summary>
         public string Name { get; internal set; } // fetched from folder name or ContentTitleText of CPL
+
+        /// <summary>
+        /// The DCP's metadata
+        /// </summary>
         public DCPMetadata Metadata { get; internal set; }
+
+        /// <summary>
+        /// The DCP's Composition Playlist (CPL)
+        /// </summary>
         public CompositionPlaylist CompositionPlaylist { get; internal set; }
+
+        /// <summary>
+        /// The list of assets present in the DCP, fetched from the ASSETMAP.xml file
+        /// </summary>
         public List<DCPAsset> Assets { get; internal set; }
 
+        /// <summary>
+        /// The <see cref="KDM.KDM"/> (Key Delivery Message), if present
+        /// </summary>
         public KDM.KDM KDMData { get; internal set; }
 
+        /// <summary>
+        /// The full path of the ASSETMAP.xml file
+        /// </summary>
         public string AssetMapPath = "";
+
+        /// <summary>
+        /// The full path of the <see cref="Models.CompositionPlaylist"/> (CPL)
+        /// </summary>
         public string CompositionPlaylistPath = "";
+
+        /// <summary>
+        /// The full path of the Packaging List (PKL)
+        /// </summary>
         public string PackListPath = "";
+
+        /// <summary>
+        /// The full path of the primary video MXF
+        /// </summary>
         public string MainPicturePath = "";
+
+        /// <summary>
+        /// The full path of the primary audio MXF
+        /// </summary>
         public string MainSoundPath = "";
+
+        /// <summary>
+        /// The root folder of the DCP
+        /// </summary>
         public string DcpRoot = "";
 
+        /// <summary>
+        /// Whether the DCP is encrypted (requires a <see cref="KDM.KDM"/>) or not
+        /// </summary>
         public bool IsEncrypted {
             get {
                 bool isEncrypted = false;
@@ -108,6 +152,13 @@ namespace DCPUtils.Models {
             return good;
         }
 
+        /// <summary>
+        /// Checks whether a specified KDM file is for the current DCP or not
+        /// </summary>
+        /// <param name="kdmFile">The KDM XML file</param>
+        /// <returns></returns>
+        /// <exception cref="SerializationException"></exception>
+        /// <exception cref="FileNotFoundException"></exception>
         public bool FindKDM(string kdmFile) {
             if (File.Exists(kdmFile)) {
                 var kdm = KDM.KDM.Read(kdmFile);

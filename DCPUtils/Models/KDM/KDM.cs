@@ -21,10 +21,29 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace DCPUtils.Models.KDM {
     public class KDM {
+        /// <summary>
+        /// The public authentication block of the KDM, also containing additional metadata (annotation text, issue date, etc.)
+        /// </summary>
         public AuthenticatedPublic AuthenticatedPublic { get; set; }
+
+        /// <summary>
+        /// The private authentication block of the KDM, a list of <see cref="EncryptedKey"/>s, which are used to decrypt the DCP
+        /// </summary>
         public List<EncryptedKey> AuthenticatedPrivate { get; set; }
+
+        /// <summary>
+        /// The digital signature of the KDM
+        /// </summary>
         public KDMSignature Signature { get; set; }
 
+        /// <summary>
+        /// Verify the <see cref="KDM"/> against a specified <see cref="DCP"/> and TMS signature
+        /// </summary>
+        /// <param name="dcp">The DCP to compare against</param>
+        /// <param name="tmsCertificatePath">The file path for the TMS's public key</param>
+        /// <param name="tmsPrivateKeyPath">The file path for the TMS's private key</param>
+        /// <returns></returns>
+        /// <exception cref="InvalidOperationException"></exception>
         public bool Verify(DCP dcp, string tmsCertificatePath, string tmsPrivateKeyPath) {
             #region Load TMS certificate
             var cert = new X509Certificate2(tmsCertificatePath);
@@ -122,6 +141,14 @@ namespace DCPUtils.Models.KDM {
             return true;
         }
 
+        /// <summary>
+        /// Read a Key Delivery Message into a new <see cref="KDM"/> instance
+        /// </summary>
+        /// <param name="kdmPath">The file path for the KDM's XML file</param>
+        /// <returns></returns>
+        /// <exception cref="FileLoadException"></exception>
+        /// <exception cref="SerializationException"></exception>
+        /// <exception cref="FileNotFoundException"></exception>
         public static KDM Read(string kdmPath) {
             if (File.Exists(kdmPath)) {
                 var kdm = new KDM();

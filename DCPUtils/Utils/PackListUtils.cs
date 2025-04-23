@@ -8,10 +8,10 @@ using System.Xml.Linq;
 namespace DCPUtils.Utils {
     public class PackListUtils {
         /// <summary>
-        /// Gets the file name from the packaging list for a given <see cref="Guid"/>.
+        /// Gets the filename from the packaging list for the specified <see cref="Guid"/>
         /// </summary>
-        /// <param name="packListFile"></param>
-        /// <param name="uuid"></param>
+        /// <param name="packListFile">The PKL's file path</param>
+        /// <param name="uuid">The UUID of the file to obtain</param>
         /// <returns></returns>
         public static string GetFileNameFromPackagingList(string packListFile, Guid uuid) {
             if(string.IsNullOrEmpty(packListFile)) {
@@ -32,10 +32,10 @@ namespace DCPUtils.Utils {
         }
 
         /// <summary>
-        /// Gets the hash from the packaging list for a given <see cref="Guid"/>.
+        /// Gets the SHA1 hash from the packaging list for the specified <see cref="Guid"/>
         /// </summary>
-        /// <param name="packListFile"></param>
-        /// <param name="uuid"></param>
+        /// <param name="packListFile">The PKL's file path</param>
+        /// <param name="uuid">The UUID of the file to obtain</param>
         /// <returns></returns>
         public static string GetHashFromPackagingList(string packListFile, Guid uuid) {
             if (string.IsNullOrEmpty(packListFile)) {
@@ -56,9 +56,9 @@ namespace DCPUtils.Utils {
         }
 
         /// <summary>
-        /// Gets the <see cref="Guid"/> of the <see cref="Models.CompositionPlaylist"/> from the packing list.
+        /// Gets the <see cref="Guid"/> of the <see cref="Models.CompositionPlaylist"/> from the PKL
         /// </summary>
-        /// <param name="packListPath"></param>
+        /// <param name="packListPath">The PKL's file path</param>
         /// <returns></returns>
         /// <exception cref="InvalidOperationException"></exception>
         public static Guid GetCplUuid(string packListPath) {

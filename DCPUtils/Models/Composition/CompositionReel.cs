@@ -10,9 +10,24 @@ using DCPUtils.Utils;
 
 namespace DCPUtils.Models.Composition {
     public class CompositionReel : DCPNode {
+        /// <summary>
+        /// The list of <see cref="Marker"/>s set for the video
+        /// </summary>
         public MainMarker MainMarkers { get; set; }
+
+        /// <summary>
+        /// Data about the video MXF for the current reel
+        /// </summary>
         public MainPicture MainPicture { get; set; }
+
+        /// <summary>
+        /// Data about the audio MXF for the current reel
+        /// </summary>
         public MainSound MainSound { get; set; }
+
+        /// <summary>
+        /// Metadata for the current reel
+        /// </summary>
         public CompositionMetadata Metadata { get; set; } // this may or may not exist
 
         /// <summary>
