@@ -75,7 +75,7 @@ namespace DCPUtils.Models.KDM {
 
             #region Recipient check
             bool isRecipient = false;
-            foreach(var ext in AuthenticatedPublic.RequiredExtensions) {
+            foreach (var ext in AuthenticatedPublic.RequiredExtensions) {
                 var recipient = ext.Recipient;
                 string certSerialHex = cert.SerialNumber;
 
@@ -205,21 +205,13 @@ namespace DCPUtils.Models.KDM {
                                 AuthorizedDeviceInfo = new AuthorizedDevice {
                                     DeviceListIdentifier = UuidUtils.ToGuid(ext.Element(kdmNs + "AuthorizedDeviceInfo")?.Element(kdmNs + "DeviceListIdentifier")?.Value),
                                     DeviceListDescription = ext.Element(kdmNs + "AuthorizedDeviceInfo")?.Element(kdmNs + "DeviceListDescription")?.Value,
-                                    DeviceList = ext.Element(kdmNs + "AuthorizedDeviceInfo")?
-                                                    .Element(kdmNs + "DeviceList")?
-                                                    .Elements(kdmNs + "CertificateThumbprint")
-                                                    .Select(e => EncodingUtils.Base64Decode(e.Value))
-                                                    .ToList()
+                                    DeviceList = ext.Element(kdmNs + "AuthorizedDeviceInfo")?.Element(kdmNs + "DeviceList")?.Elements(kdmNs + "CertificateThumbprint").Select(e => EncodingUtils.Base64Decode(e.Value)).ToList()
                                 },
-                                KeyIdList = ext.Element(kdmNs + "KeyIdList")?
-                                                .Elements(kdmNs + "TypedKeyId")
-                                                .Select(k => new FKeyId {
-                                                    KeyType = (EKdmKeyType)System.Enum.Parse(typeof(EKdmKeyType), k.Element(kdmNs + "KeyType")?.Value),
-                                                    KeyId = UuidUtils.ToGuid(k.Element(kdmNs + "KeyId")?.Value ?? Guid.Empty.ToString())
-                                                }).ToList(),
-                                ForensicMarkFlagList = ext.Element(kdmNs + "ForensicMarkFlagList")?
-                                                .Elements(kdmNs + "ForensicMarkFlag")
-                                                .Select(e => e.Value).ToList()
+                                KeyIdList = ext.Element(kdmNs + "KeyIdList")?.Elements(kdmNs + "TypedKeyId").Select(k => new FKeyId {
+                                    KeyType = (EKdmKeyType)System.Enum.Parse(typeof(EKdmKeyType), k.Element(kdmNs + "KeyType")?.Value),
+                                    KeyId = UuidUtils.ToGuid(k.Element(kdmNs + "KeyId")?.Value ?? Guid.Empty.ToString())
+                                }).ToList(),
+                                ForensicMarkFlagList = ext.Element(kdmNs + "ForensicMarkFlagList")?.Elements(kdmNs + "ForensicMarkFlag").Select(e => e.Value).ToList()
                             };
 
                             kdm.AuthenticatedPublic.RequiredExtensions.Add(extension);
