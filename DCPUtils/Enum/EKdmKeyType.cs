@@ -17,6 +17,11 @@ namespace DCPUtils.Enum {
         MDIK,
 
         /// <summary>
+        /// Media Decryption Key Set, the content keys used to to decrypt the DCP
+        /// </summary>
+        MDSK,
+
+        /// <summary>
         /// Media File Key, the actual key used to decrypt the content (MainPicture, MainSound, etc.)
         /// </summary>
         MFK,
