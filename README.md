@@ -14,7 +14,7 @@ Select the DCP you want to load
 
 If a KDM is required, this message will be displayed
 
-If a KDM is not required, skip to step XXX
+If a KDM is not required, this process is already complete, see #5
 
 ![](.github/attachments/checkkdm.png)
 
