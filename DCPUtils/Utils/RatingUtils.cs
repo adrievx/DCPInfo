@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using DCPUtils.Enum;
 
 namespace DCPUtils.Utils {
-    internal class RatingUtils {
+    public class RatingUtils {
         /// <summary>
         /// Converts a URL into the representing <see cref="ERatingAgency"/> enum
         /// </summary>
