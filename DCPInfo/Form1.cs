@@ -59,6 +59,7 @@ namespace DCPInfo {
             grp_rights_properties.Items.Clear();
 
             grp_assetmap_assets.Items.Clear();
+            grp_subtitles_ccList.Items.Clear();
 
             openKDMToolStripMenuItem.Enabled = false;
             closeToolStripMenuItem.Enabled = false;
@@ -87,6 +88,17 @@ namespace DCPInfo {
 
             foreach (var reel in _loadedDCP.CompositionPlaylist.ReelList) {
                 grp_cpl_reels.Items.Add(new ReelListViewItem(reel));
+
+                if(reel.ClosedCaption != null) {
+                    var uuid = reel.ClosedCaption.UUID;
+                    var asset = _loadedDCP.GetAssetByUUID(uuid);
+
+                    if(asset != null) {
+                        foreach (var chunk in asset.Chunks) {
+                            grp_subtitles_ccList.Items.Add(new AssetListViewItem(chunk, uuid));
+                        }
+                    }
+                }
             }
 
             grp_rights_isEncrypted.Text = _loadedDCP.IsEncrypted ? "Yes" : "No";

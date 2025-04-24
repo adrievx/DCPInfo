@@ -91,11 +91,18 @@
             this.grp_rights_isEncrypted = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.grp_subtitles_ccList = new System.Windows.Forms.ListView();
+            this.columnHeader18 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader19 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader20 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader21 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader22 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grp_cpl_contentVersion)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -453,7 +460,7 @@
             // openDCPToolStripMenuItem
             // 
             this.openDCPToolStripMenuItem.Name = "openDCPToolStripMenuItem";
-            this.openDCPToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openDCPToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.openDCPToolStripMenuItem.Text = "Open DCP";
             this.openDCPToolStripMenuItem.Click += new System.EventHandler(this.openDCPToolStripMenuItem_Click);
             // 
@@ -461,7 +468,7 @@
             // 
             this.openKDMToolStripMenuItem.Enabled = false;
             this.openKDMToolStripMenuItem.Name = "openKDMToolStripMenuItem";
-            this.openKDMToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openKDMToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.openKDMToolStripMenuItem.Text = "Open KDM";
             this.openKDMToolStripMenuItem.Click += new System.EventHandler(this.openKDMToolStripMenuItem_Click);
             // 
@@ -469,19 +476,19 @@
             // 
             this.closeToolStripMenuItem.Enabled = false;
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.closeToolStripMenuItem.Text = "Close";
             this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(129, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -686,12 +693,58 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.grp_subtitles_ccList);
             this.groupBox4.Location = new System.Drawing.Point(663, 370);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(612, 236);
             this.groupBox4.TabIndex = 4;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Subtitles";
+            // 
+            // grp_subtitles_ccList
+            // 
+            this.grp_subtitles_ccList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.grp_subtitles_ccList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader18,
+            this.columnHeader19,
+            this.columnHeader20,
+            this.columnHeader21,
+            this.columnHeader22});
+            this.grp_subtitles_ccList.FullRowSelect = true;
+            this.grp_subtitles_ccList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.grp_subtitles_ccList.HideSelection = false;
+            this.grp_subtitles_ccList.Location = new System.Drawing.Point(6, 19);
+            this.grp_subtitles_ccList.MultiSelect = false;
+            this.grp_subtitles_ccList.Name = "grp_subtitles_ccList";
+            this.grp_subtitles_ccList.Size = new System.Drawing.Size(600, 202);
+            this.grp_subtitles_ccList.TabIndex = 1;
+            this.grp_subtitles_ccList.UseCompatibleStateImageBehavior = false;
+            this.grp_subtitles_ccList.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader18
+            // 
+            this.columnHeader18.Text = "UUID";
+            this.columnHeader18.Width = 200;
+            // 
+            // columnHeader19
+            // 
+            this.columnHeader19.Text = "Path";
+            this.columnHeader19.Width = 200;
+            // 
+            // columnHeader20
+            // 
+            this.columnHeader20.Text = "Vol. Index";
+            this.columnHeader20.Width = 65;
+            // 
+            // columnHeader21
+            // 
+            this.columnHeader21.Text = "Offset";
+            // 
+            // columnHeader22
+            // 
+            this.columnHeader22.Text = "Length";
             // 
             // Form1
             // 
@@ -718,6 +771,7 @@
             this.menuStrip1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -792,6 +846,12 @@
         private System.Windows.Forms.ColumnHeader columnHeader17;
         private System.Windows.Forms.TextBox grp_cpl_contentType;
         private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.ListView grp_subtitles_ccList;
+        private System.Windows.Forms.ColumnHeader columnHeader18;
+        private System.Windows.Forms.ColumnHeader columnHeader19;
+        private System.Windows.Forms.ColumnHeader columnHeader20;
+        private System.Windows.Forms.ColumnHeader columnHeader21;
+        private System.Windows.Forms.ColumnHeader columnHeader22;
     }
 }
 
