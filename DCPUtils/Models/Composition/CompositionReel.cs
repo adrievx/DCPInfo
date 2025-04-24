@@ -33,8 +33,7 @@ namespace DCPUtils.Models.Composition {
         public CompositionMetadata Metadata { get; set; } // this may or may not exist
 
         /// <summary>
-        /// Returns a collection of <see cref="CompositionReel"/> objects in document order 
-        /// from the given <see cref="XDocument"/>.
+        /// Returns a collection of <see cref="CompositionReel"/> objects in document order from the given <see cref="XDocument"/>
         /// </summary>
         /// <param name="doc"></param>
         /// <param name="ns"></param>
@@ -44,6 +43,8 @@ namespace DCPUtils.Models.Composition {
                 var assetList = reelElem.Element(ns + "AssetList");
 
                 var reel = new CompositionReel();
+
+                reel.UUID = UuidUtils.ToGuid(reelElem.Element(ns + "Id").Value);
 
                 // MainMarkers
                 var mainMarkersElem = assetList?.Element(ns + "MainMarkers");
