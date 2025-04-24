@@ -188,6 +188,21 @@ namespace DCPUtils.Models {
         }
 
         /// <summary>
+        /// Returns a <see cref="DCPAsset"/> from it's UUID
+        /// </summary>
+        /// <param name="guid"></param>
+        /// <returns></returns>
+        public DCPAsset GetAssetByUUID(Guid guid) {
+            foreach (var item in this.Assets) {
+                if(item.UUID == guid) {
+                    return item;
+                }
+            }
+
+            return null;
+        }
+
+        /// <summary>
         /// Read a <see cref="DCP"/> into a new model
         /// </summary>
         /// <param name="root"></param>
