@@ -9,11 +9,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DCPInfo.Controls;
+using DCPInfo.Models;
 using DCPInfo.Util;
 using DCPUtils.Enum;
 using DCPUtils.Models;
 using DCPUtils.Models.KDM;
 using DCPUtils.Utils;
+using Newtonsoft.Json;
 using Ookii.Dialogs.WinForms;
 
 namespace DCPInfo {
@@ -27,6 +29,49 @@ namespace DCPInfo {
 
         private void Form1_Load(object sender, EventArgs e) {
             reset();
+
+            updateRecents();
+        }
+
+        private void RecentItem_Click(object sender, EventArgs e) {
+            var item = (RecentDCPToolStripItem)sender;
+
+            if (item != null) {
+                reset();
+
+                _loadedDCP = DCP.Read(item.Data.DCPFolder);
+
+                RecentDCPManager.MoveToEnd(item.Data);
+
+                if (_loadedDCP != null) {
+                    updateUI();
+
+                    if (!string.IsNullOrEmpty(item.Data.KDMFile)) {
+                        string kdmPath = item.Data.KDMFile;
+
+                        if (_loadedDCP.FindKDM(kdmPath)) {
+                            _loadedKDM = KDM.Read(kdmPath);
+
+                            if (_loadedDCP != null) {
+                                updateKDM();
+                            }
+                            else {
+                                reset();
+                                throw new Exception("Unable to load KDM");
+                            }
+
+                            updateRecents();
+                        }
+                        else {
+                            MessageBox.Show("The KDM tied to this entry is not for the DCP you currently have loaded.", "DCPInfo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+                else {
+                    reset();
+                    throw new Exception("Unable to load DCP");
+                }
+            }
         }
 
         #region UI functions
@@ -186,6 +231,30 @@ namespace DCPInfo {
                 this.Text = "DCPInfo";
             }
         }
+
+        private void updateRecents() {
+            recentsToolStripMenuItem.DropDownItems.Clear();
+
+            var list = RecentDCPManager.Load();
+            list.Reverse();
+
+            foreach (var item in list) {
+                if (!File.Exists(item.KDMFile)) {
+                    item.KDMFile = null;
+                    RecentDCPManager.Update(item);
+                }
+
+                if (Directory.Exists(item.DCPFolder)) {
+                    var entry = new RecentDCPToolStripItem(item);
+
+                    recentsToolStripMenuItem.DropDownItems.Add(entry);
+                    entry.Click += RecentItem_Click;
+                }
+                else {
+                    RecentDCPManager.Remove(item);
+                }
+            }
+        }
         #endregion
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e) {
@@ -208,6 +277,9 @@ namespace DCPInfo {
 
                             if (_loadedDCP != null) {
                                 updateUI();
+
+                                RecentDCPManager.Add(new RecentDCP() { DCPFolder = dcpPath });
+                                updateRecents();
                             }
                             else {
                                 reset();
@@ -240,6 +312,13 @@ namespace DCPInfo {
 
                                 if (_loadedDCP != null) {
                                     updateKDM();
+
+                                    var fetch = RecentDCPManager.Get(_loadedDCP.DcpRoot);
+
+                                    if (fetch != null) {
+                                        fetch.KDMFile = kdmPath;
+                                        RecentDCPManager.Update(fetch);
+                                    }
                                 }
                                 else {
                                     reset();
