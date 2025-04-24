@@ -2,7 +2,39 @@
 A tool & C# library to parse DCPs (Digital Cinema Package)
 
 ## Using the tool
-TODO
+1. Load your DCP
+
+![](.github/attachments/opendcp.png)
+
+Select the DCP you want to load
+
+![](.github/attachments/selectdcp.png)
+
+3. Check if you need a KDM
+
+If a KDM is required, this message will be displayed
+
+If a KDM is not required, skip to step XXX
+
+![](.github/attachments/checkkdm.png)
+
+4. Load your KDM
+
+![](.github/attachments/openkdm.png)
+
+Select the KDM you want to load
+
+![](.github/attachments/selectkdm.png)
+
+If the KDM is correct, it will show as **Unlocked** in the Rights Management panel
+
+![](.github/attachments/checkkdmloaded.png)
+
+5. Done
+
+Once a DCP (and optionally KDM) is loaded, you will then be able to see information about your DCP/KDM in their respective panels
+
+![](.github/attachments/screenshot.png)
 
 ## Examples - Using the `DCPUtils` library on its own
 ### Load a DCP and read it's metadata
