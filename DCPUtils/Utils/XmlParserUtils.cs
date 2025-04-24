@@ -65,6 +65,7 @@ namespace DCPUtils.Utils {
                 else if (ch == "AD") channels.Add(ESoundChannel.AudioDescription);
                 else if (ch == "OHI") channels.Add(ESoundChannel.OtherHearingImpairment);
                 else if (ch == "OVI") channels.Add(ESoundChannel.OtherVisionImpairment);
+                else if(ch == "-") { /* no audio */ }
                 else {
                     throw new NotSupportedException("Unsupported channel specification: " + ch);
                 }
