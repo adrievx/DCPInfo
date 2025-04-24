@@ -3,6 +3,7 @@ using DCPUtils.Models;
 using System.Diagnostics;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using DCPUtils.Enum;
+using System.Linq;
 
 namespace DCPUtils.Tests {
     [TestClass]
@@ -73,6 +74,19 @@ namespace DCPUtils.Tests {
             }
 
             Debug.WriteLine(value);
+        }
+
+        [TestMethod]
+        public void ReadSubtitleFromSeperateDcp() {
+            var dcp = DCP.Read("D:\\work\\DCPInfo\\temp\\SubtitleTest\\SubtitleTest_TST-1_F-178_XX-XX_20_2K_20250424_SMPTE_OV");
+            string hash = dcp.CompositionPlaylist.ReelList.First().ClosedCaption.Hash;
+
+            Assert.IsNotNull(dcp);
+            Assert.IsNotNull(dcp.CompositionPlaylist.ReelList.First().ClosedCaption);
+            Assert.AreEqual("9504d0ddeb4196aed39119fb8a212a803cc419bd", hash);
+            Assert.IsTrue(dcp.HasClosedCaptions);
+
+            Debug.WriteLine(hash);
         }
     }
 }

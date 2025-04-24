@@ -93,6 +93,11 @@ namespace DCPUtils.Models {
         }
 
         /// <summary>
+        /// Whether the DCP has closed captions or not
+        /// </summary>
+        public bool HasClosedCaptions => CompositionPlaylist.ReelList.Any(reel => reel.ClosedCaption != null);
+
+        /// <summary>
         /// Verifies the <see cref="DCP"/> against the packaging list (if present) to ensure that the package hasn't been tampered with.
         /// </summary>
         /// <returns></returns>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -28,9 +29,14 @@ namespace DCPUtils.Models.Composition {
         public MainSound MainSound { get; set; }
 
         /// <summary>
+        /// Data about the captions MXF for the current reel
+        /// </summary>
+        public ClosedCaption ClosedCaption { get; set; } // this may or may not exist
+
+        /// <summary>
         /// Metadata for the current reel
         /// </summary>
-        public CompositionMetadata Metadata { get; set; } // this may or may not exist
+        public CompositionMetadata Metadata { get; set; }
 
         /// <summary>
         /// Returns a collection of <see cref="CompositionReel"/> objects in document order from the given <see cref="XDocument"/>
@@ -107,7 +113,7 @@ namespace DCPUtils.Models.Composition {
                     };
                 }
 
-                // CompositionMetadata (may or may not exist)
+                // CompositionMetadata
                 XNamespace cplMeta = "http://www.smpte-ra.org/schemas/429-16/2014/CPL-Metadata";
 
                 var metadataElem = assetList?.Element(cplMeta + "CompositionMetadataAsset");
@@ -123,6 +129,21 @@ namespace DCPUtils.Models.Composition {
                         MainSoundSampleRate = XmlParserUtils.ParseSampleRate(metadataElem.Element(cplMeta + "MainSoundSampleRate")?.Value),
                         MainPictureStoredArea = XmlParserUtils.ParsePoint(metadataElem.Element(cplMeta + "MainPictureStoredArea"), cplMeta),
                         MainPictureActiveArea = XmlParserUtils.ParsePoint(metadataElem.Element(cplMeta + "MainPictureActiveArea"), cplMeta),
+                    };
+                }
+
+                // ClosedCaption (may or may not exist)
+                XNamespace ccMeta = "http://www.smpte-ra.org/schemas/429-12/2008/TT";
+
+                var captionsElem = assetList?.Elements().FirstOrDefault(e => e.Name == ccMeta + "ClosedCaption");
+                if (captionsElem != null) {
+                    reel.ClosedCaption = new ClosedCaption {
+                        UUID = UuidUtils.ToGuid(captionsElem.Element(ns + "Id")?.Value),
+                        EditRate = parseFramerate(captionsElem.Element(ns + "EditRate")?.Value),
+                        IntrinsicDuration = int.Parse(captionsElem.Element(ns + "IntrinsicDuration")?.Value ?? "0"),
+                        EntryPoint = int.Parse(captionsElem.Element(ns + "EntryPoint")?.Value ?? "0"),
+                        Duration = long.Parse(captionsElem.Element(ns + "Duration")?.Value ?? "0"),
+                        Hash = EncodingUtils.Base64Decode(captionsElem.Element(ns + "Hash")?.Value),
                     };
                 }
 

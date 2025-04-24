@@ -54,6 +54,7 @@
     <Compile Include="Enum\ESoundType.cs" />
     <Compile Include="Interfaces\IDenominatorModel.cs" />
     <Compile Include="Models\CompositionPlaylist.cs" />
+    <Compile Include="Models\Composition\ClosedCaption.cs" />
     <Compile Include="Models\Composition\CompositionAsset.cs" />
     <Compile Include="Models\Composition\CompositionMetadata.cs" />
     <Compile Include="Models\Composition\CompositionReel.cs" />
