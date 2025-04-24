@@ -23,6 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.grp_cpl_contentType = new System.Windows.Forms.TextBox();
             this.grp_cpl_facility = new System.Windows.Forms.TextBox();
@@ -121,7 +122,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 27);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(593, 337);
+            this.groupBox1.Size = new System.Drawing.Size(645, 337);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Composition Playlist";
@@ -153,6 +154,8 @@
             // 
             // grp_cpl_reels
             // 
+            this.grp_cpl_reels.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.grp_cpl_reels.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader3,
             this.columnHeader4,
@@ -162,10 +165,13 @@
             this.columnHeader8,
             this.columnHeader9,
             this.columnHeader10});
+            this.grp_cpl_reels.FullRowSelect = true;
+            this.grp_cpl_reels.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.grp_cpl_reels.HideSelection = false;
             this.grp_cpl_reels.Location = new System.Drawing.Point(14, 175);
+            this.grp_cpl_reels.MultiSelect = false;
             this.grp_cpl_reels.Name = "grp_cpl_reels";
-            this.grp_cpl_reels.Size = new System.Drawing.Size(567, 150);
+            this.grp_cpl_reels.Size = new System.Drawing.Size(625, 150);
             this.grp_cpl_reels.TabIndex = 17;
             this.grp_cpl_reels.UseCompatibleStateImageBehavior = false;
             this.grp_cpl_reels.View = System.Windows.Forms.View.Details;
@@ -214,10 +220,13 @@
             this.grp_cpl_ratings.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2});
+            this.grp_cpl_ratings.FullRowSelect = true;
+            this.grp_cpl_ratings.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.grp_cpl_ratings.HideSelection = false;
             this.grp_cpl_ratings.Location = new System.Drawing.Point(365, 19);
+            this.grp_cpl_ratings.MultiSelect = false;
             this.grp_cpl_ratings.Name = "grp_cpl_ratings";
-            this.grp_cpl_ratings.Size = new System.Drawing.Size(216, 150);
+            this.grp_cpl_ratings.Size = new System.Drawing.Size(274, 150);
             this.grp_cpl_ratings.TabIndex = 16;
             this.grp_cpl_ratings.UseCompatibleStateImageBehavior = false;
             this.grp_cpl_ratings.View = System.Windows.Forms.View.Details;
@@ -363,26 +372,33 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.grp_assetmap_assets);
-            this.groupBox2.Location = new System.Drawing.Point(611, 27);
+            this.groupBox2.Location = new System.Drawing.Point(663, 27);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(605, 337);
+            this.groupBox2.Size = new System.Drawing.Size(612, 337);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Asset Map";
             // 
             // grp_assetmap_assets
             // 
+            this.grp_assetmap_assets.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.grp_assetmap_assets.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader11,
             this.columnHeader12,
             this.columnHeader13,
             this.columnHeader14,
             this.columnHeader15});
+            this.grp_assetmap_assets.FullRowSelect = true;
+            this.grp_assetmap_assets.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.grp_assetmap_assets.HideSelection = false;
             this.grp_assetmap_assets.Location = new System.Drawing.Point(6, 19);
+            this.grp_assetmap_assets.MultiSelect = false;
             this.grp_assetmap_assets.Name = "grp_assetmap_assets";
-            this.grp_assetmap_assets.Size = new System.Drawing.Size(593, 306);
+            this.grp_assetmap_assets.Size = new System.Drawing.Size(600, 306);
             this.grp_assetmap_assets.TabIndex = 0;
             this.grp_assetmap_assets.UseCompatibleStateImageBehavior = false;
             this.grp_assetmap_assets.View = System.Windows.Forms.View.Details;
@@ -418,7 +434,7 @@
             this.fileToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1228, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1287, 24);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -437,31 +453,37 @@
             // openDCPToolStripMenuItem
             // 
             this.openDCPToolStripMenuItem.Name = "openDCPToolStripMenuItem";
-            this.openDCPToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.openDCPToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.openDCPToolStripMenuItem.Text = "Open DCP";
+            this.openDCPToolStripMenuItem.Click += new System.EventHandler(this.openDCPToolStripMenuItem_Click);
             // 
             // openKDMToolStripMenuItem
             // 
+            this.openKDMToolStripMenuItem.Enabled = false;
             this.openKDMToolStripMenuItem.Name = "openKDMToolStripMenuItem";
-            this.openKDMToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.openKDMToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.openKDMToolStripMenuItem.Text = "Open KDM";
+            this.openKDMToolStripMenuItem.Click += new System.EventHandler(this.openKDMToolStripMenuItem_Click);
             // 
             // closeToolStripMenuItem
             // 
+            this.closeToolStripMenuItem.Enabled = false;
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.closeToolStripMenuItem.Text = "Close";
+            this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(129, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // groupBox3
             // 
@@ -485,7 +507,7 @@
             this.groupBox3.Controls.Add(this.label10);
             this.groupBox3.Location = new System.Drawing.Point(12, 370);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(593, 236);
+            this.groupBox3.Size = new System.Drawing.Size(645, 236);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Rights Management";
@@ -495,10 +517,13 @@
             this.grp_rights_properties.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader16,
             this.columnHeader17});
+            this.grp_rights_properties.FullRowSelect = true;
+            this.grp_rights_properties.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.grp_rights_properties.HideSelection = false;
-            this.grp_rights_properties.Location = new System.Drawing.Point(365, 19);
+            this.grp_rights_properties.Location = new System.Drawing.Point(371, 19);
+            this.grp_rights_properties.MultiSelect = false;
             this.grp_rights_properties.Name = "grp_rights_properties";
-            this.grp_rights_properties.Size = new System.Drawing.Size(216, 202);
+            this.grp_rights_properties.Size = new System.Drawing.Size(268, 202);
             this.grp_rights_properties.TabIndex = 20;
             this.grp_rights_properties.UseCompatibleStateImageBehavior = false;
             this.grp_rights_properties.View = System.Windows.Forms.View.Details;
@@ -511,7 +536,7 @@
             // columnHeader17
             // 
             this.columnHeader17.Text = "Value";
-            this.columnHeader17.Width = 100;
+            this.columnHeader17.Width = 150;
             // 
             // grp_rights_kdmState
             // 
@@ -661,9 +686,9 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Location = new System.Drawing.Point(611, 370);
+            this.groupBox4.Location = new System.Drawing.Point(663, 370);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(605, 236);
+            this.groupBox4.Size = new System.Drawing.Size(612, 236);
             this.groupBox4.TabIndex = 4;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Subtitles";
@@ -672,15 +697,18 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1228, 625);
+            this.ClientSize = new System.Drawing.Size(1287, 625);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "DCPInfo";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
