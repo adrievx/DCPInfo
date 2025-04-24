@@ -8,13 +8,20 @@ using DCPUtils.Utils;
 
 namespace DCPUtils.Models.Composition {
     public class PrimaryCompositionAsset : CompositionAsset {
+        /// <summary>
+        /// The frame at which the asset starts at
+        /// </summary>
         public long EntryPoint { get; set; }
 
         /// <summary>
         /// The duration of the asset in frames
         /// </summary>
         public long Duration { get; set; }
-        public string Hash { get; set; } // in an actual CPL this is base64 encoded SHA1, we decode it for ease of use
+
+        /// <summary>
+        /// Hex-encoded SHA1 hash of the asset
+        /// </summary>
+        public string Hash { get; set; }
 
         /// <summary>
         /// Verifies the SHA1 hash of a specified MXF.
