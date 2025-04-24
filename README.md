@@ -1,5 +1,5 @@
 # DCPInfo
-A tool to view info about a DCP (Digital Cinema Package)
+A tool & C# library to parse DCPs (Digital Cinema Package)
 
 ## Using the tool
 TODO
