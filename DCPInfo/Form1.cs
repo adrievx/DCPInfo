@@ -257,6 +257,7 @@ namespace DCPInfo {
         }
         #endregion
 
+        #region Menu UI events
         private void exitToolStripMenuItem_Click(object sender, EventArgs e) {
             Application.Exit();
         }
@@ -343,5 +344,6 @@ namespace DCPInfo {
         private void closeToolStripMenuItem_Click(object sender, EventArgs e) {
             reset();
         }
+        #endregion
     }
 }
