@@ -151,6 +151,23 @@ namespace DCPUtils.Models {
                         good = false;
                         Debug.WriteLine($"Hash of Composition Playlist ({pictureFilename}) did not line up with expected hash.");
                     }
+
+                    if(HasClosedCaptions) {
+                        var captionUuid = CompositionPlaylist.ReelList.First().ClosedCaption.UUID;
+                        string captionFilename = PackListUtils.GetFileNameFromPackagingList(PackListPath, captionUuid);
+                        string captionPath = Path.Combine(DcpRoot, captionFilename);
+
+                        string captionHashExpected = PackListUtils.GetHashFromPackagingList(PackListPath, captionUuid);
+                        string captionHashResult = CryptoUtils.CalculateSHA1(captionPath);
+
+                        if (captionHashExpected == captionHashResult) {
+                            Debug.WriteLine($"Hash of ClosedCaption ({captionFilename}) was good.");
+                        }
+                        else {
+                            good = false;
+                            Debug.WriteLine($"Hash of ClosedCaption ({captionFilename}) did not line up with expected hash.");
+                        }
+                    }
                 }
             }
 
