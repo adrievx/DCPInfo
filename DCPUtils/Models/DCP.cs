@@ -125,6 +125,8 @@ namespace DCPUtils.Models {
                     string soundHashResult = CryptoUtils.CalculateSHA1(soundPath);
                     string cplHashResult = CryptoUtils.CalculateSHA1(CompositionPlaylistPath);
 
+                    string cplFilename = new FileInfo(CompositionPlaylistPath).Name;
+
                     // check MainPicture
                     if (pictureHashExpected == pictureHashResult) {
                         Debug.WriteLine($"Hash of MainPicture ({pictureFilename}) was good.");
@@ -145,11 +147,11 @@ namespace DCPUtils.Models {
 
                     // check compo playlist
                     if (cplHashExpected == cplHashResult) {
-                        Debug.WriteLine($"Hash of Composition Playlist ({pictureFilename}) was good.");
+                        Debug.WriteLine($"Hash of Composition Playlist ({cplFilename}) was good.");
                     }
                     else {
                         good = false;
-                        Debug.WriteLine($"Hash of Composition Playlist ({pictureFilename}) did not line up with expected hash.");
+                        Debug.WriteLine($"Hash of Composition Playlist ({cplFilename}) did not line up with expected hash.");
                     }
 
                     if(HasClosedCaptions) {
