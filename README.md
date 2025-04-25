@@ -95,3 +95,6 @@ All contributions are welcome! If you wish to contribute, please open a pull req
 
 ## Attributions
 - [NTDesigns - Projector Icons](https://www.iconarchive.com/show/projector-icons-by-ntdesigns/projector-violet-icon.html)
+
+## NuGet
+The NuGet package can be found at https://www.nuget.org/packages/DCPUtils/0.1.0
