@@ -22,24 +22,5 @@ namespace DCPUtils.Models.Composition {
         /// Hex-encoded SHA1 hash of the asset
         /// </summary>
         public string Hash { get; set; }
-
-        /// <summary>
-        /// Verifies the SHA1 hash of a specified MXF.
-        /// </summary>
-        /// <param name="packList"></param>
-        /// <param name="mxfPath"></param>
-        /// <returns></returns>
-        /// <exception cref="FileNotFoundException"></exception>
-        public bool Verify(string packList, string mxfPath) {
-            if(File.Exists(mxfPath)) {
-                var expectedHash = PackListUtils.GetHashFromPackagingList(packList, UUID);
-                var resultHash = CryptoUtils.CalculateSHA1(mxfPath);
-
-                return expectedHash.ToLower() == resultHash.ToLower();
-            }
-            else {
-                throw new FileNotFoundException("Unable to find specified MXF file.");
-            }
-        }
     }
 }
