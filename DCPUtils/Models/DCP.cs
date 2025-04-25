@@ -155,7 +155,7 @@ namespace DCPUtils.Models {
                     }
 
                     if(HasClosedCaptions) {
-                        var captionUuid = CompositionPlaylist.ReelList.First().ClosedCaption.UUID;
+                        var captionUuid = reel.ClosedCaption.UUID;
                         string captionFilename = PackListUtils.GetFileNameFromPackagingList(PackListPath, captionUuid);
                         string captionPath = Path.Combine(DcpRoot, captionFilename);
 
